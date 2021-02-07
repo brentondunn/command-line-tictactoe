@@ -40,12 +40,15 @@ def lettersToNumbers(letter):
     if letter == 'c' or letter == 'C':
         return 2
 
+
 lastPlayer = ''
 play = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
 print(print_board(play[0][0], play[0][1], play[0][2], play[1][0], play[1][1], play[1][2], play[2][0], play[2][1],
                   play[2][2]))
 
-while checkIfThree() == False:
+while not checkIfThree():
+
+
 
     player1row = ""
     player1column = ""
@@ -56,10 +59,10 @@ while checkIfThree() == False:
     player1move = input('Player 1, where do you want to play? ')
     while len(player1move) != 2:
         player1move = input('Please input a valid move: ')
-    while (((player1move[0] == 'a' or player1move[0] == 'b' or player1move[0] == 'c') and
-           (player1move[1] == '1' or player1move[1] == '2' or player1move[1] == '3')) or (
-        (player1move[1] == 'a' or player1move[1] == 'b' or player1move[1] == 'c') and
-         (player1move[0] == '1' or player1move[0] == '2' or player1move[0] == '3'))) == False:
+    while not (((player1move[0] == 'a' or player1move[0] == 'b' or player1move[0] == 'c') and
+                (player1move[1] == '1' or player1move[1] == '2' or player1move[1] == '3')) or (
+                       (player1move[1] == 'a' or player1move[1] == 'b' or player1move[1] == 'c') and
+                       (player1move[0] == '1' or player1move[0] == '2' or player1move[0] == '3'))):
         player1move = input('Please input a valid move: ')
 
     if player1move[0] == 'a' or player1move[0] == 'b' or player1move[0] == 'c':
@@ -75,7 +78,8 @@ while checkIfThree() == False:
         player1row = int(input("Player 1: What row do you want to play? "))
         player1column = input("Player 1: What column do you want to play? ")
     play[player1row][player1column] = 'X'
-    print(print_board(play[0][0], play[0][1], play[0][2], play[1][0], play[1][1], play[1][2], play[2][0], play[2][1], play[2][2]))
+    print(print_board(play[0][0], play[0][1], play[0][2], play[1][0], play[1][1], play[1][2], play[2][0], play[2][1],
+                      play[2][2]))
     lastPlayer = 'Player 1'
 
     if checkIfThree():
@@ -85,10 +89,10 @@ while checkIfThree() == False:
     player2move = input('Player 2, where do you want to play? ')
     while len(player2move) != 2:
         player2move = input('Please input a valid move: ')
-    while (((player2move[0] == 'a' or player2move[0] == 'b' or player2move[0] == 'c') and
-            (player2move[1] == '1' or player2move[1] == '2' or player2move[1] == '3')) or (
-                   (player2move[1] == 'a' or player2move[1] == 'b' or player2move[1] == 'c') and
-                   (player2move[0] == '1' or player2move[0] == '2' or player2move[0] == '3'))) == False:
+    while not (((player2move[0] == 'a' or player2move[0] == 'b' or player2move[0] == 'c') and
+                (player2move[1] == '1' or player2move[1] == '2' or player2move[1] == '3')) or (
+                       (player2move[1] == 'a' or player2move[1] == 'b' or player2move[1] == 'c') and
+                       (player2move[0] == '1' or player2move[0] == '2' or player2move[0] == '3'))):
         player2move = input('Please input a valid move: ')
 
     if player2move[0] == 'a' or player2move[0] == 'b' or player2move[0] == 'c':
